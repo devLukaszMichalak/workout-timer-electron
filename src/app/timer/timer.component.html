@@ -1,0 +1,27 @@
+<div class="flex justify-center items-center gap-10 h-full" [ngClass]="isWindowLandscape() ? 'flex-row' : 'flex-col'">
+  <label for="my-modal" class="btn"><fa-icon [icon]="faGear"></fa-icon></label>
+  <div class="radial-progress bg-primary text-primary-content border-4 border-primary transition duration-200" [ngClass]="milliseconds === 0 ? 'bg-error border-error red-ring-color' : ''" [style]="getTimerRingValue()">
+    <span class="text-4xl transition duration-200" [ngClass]="milliseconds === 0 ? 'btn-error-color' : ''"><strong>{{getRoundedSeconds()}}</strong></span>
+  </div>
+  <button (click)="resetTimer()" class="btn btn-primary btn-lg" [ngClass]="milliseconds === 0 ? 'btn-error' : ''">Reset</button>
+</div>
+
+<input type="checkbox" id="my-modal" class="modal-toggle" />
+<div class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <label for="my-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+    <h3 class="font-bold text-lg mb-7">SET TIMER DURATION</h3>
+    <input type="range" min="15" max="90" #newValue [value]="resetValue/1000"  class="range range-primary" step="15" />
+    <div class="w-full flex justify-between text-xs px-2">
+      <span>15</span>
+      <span>30</span>
+      <span>45</span>
+      <span>60</span>
+      <span>75</span>
+      <span>90</span>
+    </div>
+    <div class="modal-action">
+      <label for="my-modal" class="btn btn-primary" (click)="setResetValue(newValue.value)">SET</label>
+    </div>
+  </div>
+</div>
