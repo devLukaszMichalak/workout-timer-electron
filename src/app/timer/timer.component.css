@@ -1,6 +1,16 @@
-.btn-error-color{
-  color: hsl(var(--erc, var(--nc)) / var(--tw-text-opacity));
-}
-.red-ring-color{
+.red-ring-color {
   color: #f87272;
+}
+
+.red-ring-background {
+  border: #f87272;
+  background: #f87272;
+}
+
+.red-ring-background:after {
+  color: #f87272;
+}
+
+.stopped-timer-text-color {
+  color: rgb(71, 0, 0);
 }
