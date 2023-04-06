@@ -1,5 +1,8 @@
 module.exports = {
-  packagerConfig: {},
+  packagerConfig: {
+    icon: './icon.icns', // Mac
+    // icon: './icon.ico', // Windows
+  },
   rebuildConfig: {},
   makers: [
     {

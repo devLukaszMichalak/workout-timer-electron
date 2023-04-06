@@ -2,7 +2,7 @@ const {app, BrowserWindow, Menu} = require('electron')
 const url = require("url");
 const path = require("path");
 
-const menuTemplate = require('./electron/menuTemplate').menuTemplate;
+const {menuTemplate, isMac} = require('./electron/menuTemplate');
 
 // Create the menu from the menuTemplate and set the menu as the application menu
 const menu = Menu.buildFromTemplate(menuTemplate);
@@ -41,7 +41,7 @@ function createWindow() {
 app.on('ready', createWindow)
 
 app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') app.quit()
+  if (!isMac) app.quit()
 })
 
 app.on('activate', function () {

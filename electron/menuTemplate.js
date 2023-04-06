@@ -26,8 +26,7 @@ const sourceCodeMenuItem = {
   }
 }
 
-const
-  menuTemplate = [
+const menuTemplate = [
     {
       label: 'File',
       submenu: [
@@ -58,3 +57,4 @@ if (isMac) {
 }
 
 module.exports.menuTemplate = menuTemplate;
+module.exports.isMac = isMac;
