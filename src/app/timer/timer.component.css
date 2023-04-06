@@ -8,7 +8,11 @@
 }
 
 .red-ring-background:after {
-  color: #f87272;
+  color: transparent;
+}
+
+.red-ring-background:before {
+  color: transparent;
 }
 
 .stopped-timer-text-color {

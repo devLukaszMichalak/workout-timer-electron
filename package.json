@@ -10,7 +10,7 @@
   "main": "main.js",
   "scripts": {
     "ng": "ng",
-    "start": "electron-forge start",
+    "start": "ng build && electron-forge start",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

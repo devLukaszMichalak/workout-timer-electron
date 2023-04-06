@@ -5,6 +5,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { TimerComponent } from './timer/timer.component';
 
+declare global {
+  interface Window {
+    electron: {
+      ipcRenderer: import('electron').IpcRenderer;
+    };
+  }
+}
+
 @NgModule({
   declarations: [
     AppComponent,

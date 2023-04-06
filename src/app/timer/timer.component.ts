@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { faGear } from '@fortawesome/free-solid-svg-icons';
+import {faGear} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-timer',
@@ -8,7 +8,11 @@ import { faGear } from '@fortawesome/free-solid-svg-icons';
 })
 export class TimerComponent implements OnInit, OnDestroy {
 
-  resetValue:  number = 45000;
+  constructor() {
+    window.electron.ipcRenderer.on('reset-timer-item-clicked', () => this.resetTimer());
+  }
+
+  resetValue: number = 45000;
   milliseconds: number = this.resetValue;
 
   faGear = faGear;
@@ -20,7 +24,7 @@ export class TimerComponent implements OnInit, OnDestroy {
   }
 
   resetTimer(): void {
-    if (this.milliseconds !== 0){
+    if (this.milliseconds !== 0) {
       this.milliseconds = this.resetValue;
     } else {
       this.milliseconds = this.resetValue;
@@ -53,7 +57,7 @@ export class TimerComponent implements OnInit, OnDestroy {
   }
 
   getRoundedSeconds(): string {
-    return `${Math.floor(this.milliseconds/1000)}.${Math.floor((this.milliseconds % 1000)/100)}`;
+    return `${Math.floor(this.milliseconds / 1000)}.${Math.floor((this.milliseconds % 1000) / 100)}`;
   }
 
   isWindowLandscape() {
