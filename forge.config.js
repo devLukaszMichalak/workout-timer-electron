@@ -1,7 +1,10 @@
 module.exports = {
   packagerConfig: {
-    icon: './icon.icns', // Mac
-    // icon: './icon.ico', // Windows
+    // icon: './icon.icns', // Mac
+    icon: './icon.ico', // Windows
+    ignore: [
+      /^\/(node_modules|src|.angular|.idea|.vscode|out)/
+    ]
   },
   rebuildConfig: {},
   makers: [
