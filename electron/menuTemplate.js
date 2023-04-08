@@ -5,7 +5,7 @@ const isMac = process.platform === 'darwin'
 const aboutMenuItem = {
   label: 'About Workout Timer',
   click: () => {
-    const message = `Workout Timer v0\n\nCreated by Łukasz Michalak`;
+    const message = `Workout Timer v1.0.0\n\nCreated by Łukasz Michalak`;
     dialog.showMessageBox({title: 'About', message: message, buttons: ['OK']});
   }
 }
