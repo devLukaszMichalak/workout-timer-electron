@@ -4,6 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { TimerComponent } from './timer/timer.component';
+import {ResizeDirective} from "./directives/resize.directive";
 
 declare global {
   interface Window {
@@ -15,6 +16,7 @@ declare global {
 
 @NgModule({
   declarations: [
+    ResizeDirective,
     AppComponent,
     TimerComponent
   ],
