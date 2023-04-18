@@ -9,7 +9,8 @@ import {faGear} from '@fortawesome/free-solid-svg-icons';
 export class TimerComponent implements OnInit, OnDestroy {
 
   constructor() {
-    window.electron.ipcRenderer.on('reset-timer-item-clicked', () => this.resetTimer());
+    window.electron.ipcRenderer.on('reset-timer-item-clicked',
+      () => document.getElementById("resetTimerBtn")!.click());
   }
 
   resetValue: number = 45000;
