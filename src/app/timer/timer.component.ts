@@ -39,15 +39,6 @@ export class TimerComponent implements OnInit, OnDestroy {
     clearInterval(this.intervalId);
   }
 
-  private startTimer(): void {
-    this.intervalId = setInterval(() => {
-      this.milliseconds -= 25;
-      if (this.milliseconds === 0) {
-        clearInterval(this.intervalId);
-      }
-    }, 25);
-  }
-
   getTimerRingValue(): string {
     return `--value:${100 / this.resetValue * this.milliseconds};--size:18rem;`
   }
@@ -63,6 +54,22 @@ export class TimerComponent implements OnInit, OnDestroy {
 
   isWindowLandscape() {
     return window.innerHeight < window.innerWidth;
+  }
+
+  private startTimer(): void {
+    this.intervalId = setInterval(() => {
+      if (this.milliseconds === 0) {
+        clearInterval(this.intervalId);
+        this.playAudio();
+      } else {
+        this.milliseconds -= 25;
+      }
+    }, 25);
+  }
+
+  private playAudio(): void {
+    const myAudio = document.getElementById("audio") as HTMLAudioElement;
+    myAudio.play().then();
   }
 }
 
